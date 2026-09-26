@@ -98,7 +98,7 @@ img, svg { max-width: 100%; }
 .intro p { margin: 0; }
 
 /* ---------- Cards ---------- */
-.about-activities { background: var(--sky); padding: 18px 0 22px; }
+.about-activities { background: #fff6cc; /* 練習：水色→薄い黄色 */ padding: 18px 0 22px; }
 .cards {
   list-style: none; margin: 0 auto; padding: 0; width: min(1200px, 100% - 32px);
   display: grid; gap: 16px; grid-template-columns: 1fr;
@@ -124,7 +124,7 @@ img, svg { max-width: 100%; }
 .section { padding: 32px 0 48px; }
 .section-title { text-align: center; font-size: 28px; font-weight: 400; margin: 0 0 24px; }
 .report { background: var(--cream); }
-.news { background: var(--pink-bg); }
+.news { background: #eaf7ee; } /* 練習：薄ピンク→薄いミント */
 
 /* ---------- Schedule (wood-like panels) ---------- */
 .schedule { background: #fff; padding: 20px 0; }
