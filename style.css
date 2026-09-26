@@ -1,14 +1,15 @@
 :root {
-  --green-dark: #0c3319;
-  --green-header: rgba(134, 209, 160, .85);
-  /* 基本は緑と無彩色。強調したい所（申込・寄付）だけ --accent を使う */
+  /* ロゴアイコン（assets/logo-mark-t.png）の青から作った配色。基本はこの青と無彩色。
+     強調したい所（申込・寄付）だけ --accent を使う */
+  --blue-dark: #072850;
+  --blue-header: rgba(157, 195, 241, .85);
   --accent: #d9480f;
   --accent-dark: #b03a0a;
   --accent-soft: #fff1e8;
-  --green: #86d1a0;
-  --green-soft: #c2e8cf;
-  --bg-soft: #f3f8f4;
-  --line: #d5dfd8;
+  --blue: #348bf4;
+  --blue-soft: #cddff4;
+  --bg-soft: #f2f6fa;
+  --line: #d2ddea;
 }
 
 * { box-sizing: border-box; }
@@ -21,7 +22,7 @@ body {
     "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   color: #000;
   line-height: 1.7;
-  background: var(--green-dark);
+  background: var(--blue-dark);
 }
 
 a { color: inherit; }
@@ -34,7 +35,7 @@ img, svg { max-width: 100%; }
   height: 60px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 16px;
-  background: var(--green-header);
+  background: var(--blue-header);
   backdrop-filter: blur(3px);
 }
 .logo { white-space: nowrap; display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 22px; line-height: 1; }
@@ -52,7 +53,7 @@ img, svg { max-width: 100%; }
 
 .nav {
   position: absolute; top: 60px; left: 0; right: 0;
-  background: rgba(134, 209, 160, .97);
+  background: rgba(157, 195, 241, .97);
   display: none; flex-direction: column;
 }
 .nav.open { display: flex; }
@@ -103,11 +104,11 @@ img, svg { max-width: 100%; }
 .card {
   display: flex; flex-direction: column; height: 100%; text-decoration: none; text-align: center;
   border-radius: 16px; overflow: hidden;
-  background: #fff; border: 2px solid var(--green);
+  background: #fff; border: 2px solid var(--blue);
   transition: transform .15s, box-shadow .15s;
 }
 .card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,.15); }
-.card h2 { margin: 0; padding: 16px 8px 4px; font-size: 22px; font-weight: 700; line-height: 1.3; color: var(--green-dark); }
+.card h2 { margin: 0; padding: 16px 8px 4px; font-size: 22px; font-weight: 700; line-height: 1.3; color: var(--blue-dark); }
 .card p { margin: 0; padding: 4px 12px 18px; font-size: 13px; line-height: 1.6; flex: 1; display: flex; align-items: center; justify-content: center; }
 /* 強調カード（参加申込・寄付/協力） */
 .card-cta { background: var(--accent); border-color: var(--accent); color: #fff; }
@@ -124,21 +125,21 @@ img, svg { max-width: 100%; }
 .schedule { background: #fff; padding: 20px 0; }
 .panels { display: grid; gap: 16px; grid-template-columns: 1fr; }
 .panel {
-  background: #fff; border: 2px solid var(--green); border-radius: 12px; overflow: hidden;
+  background: #fff; border: 2px solid var(--blue); border-radius: 12px; overflow: hidden;
   min-height: 230px; display: flex; flex-direction: column;
 }
 .panel h2 {
   margin: 0; padding: 10px 0; text-align: center; font-size: 22px; font-weight: 700;
-  background: var(--green-dark); color: #fff;
+  background: var(--blue-dark); color: #fff;
 }
 .panel-body { flex: 1; padding: 16px 16px 18px; font-size: 15px; }
 .panel-body p { margin: 0 0 4px; }
-.panel-body .pin { color: var(--green-dark); margin-right: 6px; }
+.panel-body .pin { color: var(--blue-dark); margin-right: 6px; }
 .panel-body .closed { color: var(--accent); font-weight: 700; margin: 6px 0; }
 .panel-body ul { margin: 0; padding-left: 1.2em; }
 .panel-body .btn-wrap { text-align: center; margin-top: 10px; }
 .btn {
-  display: inline-block; background: #fff; color: var(--green-dark); border: 2px solid var(--green-dark);
+  display: inline-block; background: #fff; color: var(--blue-dark); border: 2px solid var(--blue-dark);
   padding: 6px 32px; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 700;
 }
 .btn:hover { background: var(--bg-soft); }
@@ -160,7 +161,7 @@ img, svg { max-width: 100%; }
 .chikarat { height: auto; }
 .post-grid h3 { margin: 12px 0 8px; font-size: 18px; font-weight: 400; line-height: 1.5; }
 .post-meta { margin: 0; padding: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 8px; font-size: 13px; }
-.post-meta dt { background: var(--green-soft); padding: 0 8px; border-radius: 4px; white-space: nowrap; text-align: center; }
+.post-meta dt { background: var(--blue-soft); padding: 0 8px; border-radius: 4px; white-space: nowrap; text-align: center; }
 .post-meta dd { margin: 0; }
 .post-text { margin: 0; font-size: 14px; }
 .post-foot { margin-top: 8px; padding: 2px 8px; background: #eee; text-align: right; font-size: 12px; }
@@ -172,7 +173,7 @@ img, svg { max-width: 100%; }
 .sponsor p { margin: 0 0 12px; }
 
 /* ---------- Footer ---------- */
-.site-footer { background: var(--green-dark); color: #fff; padding: 25px 16px; text-align: center; font-size: 14px; }
+.site-footer { background: var(--blue-dark); color: #fff; padding: 25px 16px; text-align: center; font-size: 14px; }
 .site-footer p { margin: 0 0 12px; }
 .footer-links { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 20px; }
 .footer-links a { text-decoration: none; }
@@ -222,12 +223,12 @@ img, svg { max-width: 100%; }
 }
 .page h2 {
   margin: 32px 0 0; padding: 6px 12px; font-size: 24px; font-weight: 400; line-height: 1.5;
-  background: linear-gradient(90deg, var(--green-soft) 0%, #fff 20%);
-  border-bottom: 1px solid var(--green-soft);
+  background: linear-gradient(90deg, var(--blue-soft) 0%, #fff 20%);
+  border-bottom: 1px solid var(--blue-soft);
 }
 .page h3 {
   margin: 36px 0 0; padding-left: 11px; font-size: 20px; font-weight: 400;
-  border-bottom: 1px solid var(--green-soft);
+  border-bottom: 1px solid var(--blue-soft);
 }
 .page p, .page ul, .page dl { margin: 12px 16px 0; }
 .page ul { padding-left: 1.4em; }
@@ -239,7 +240,7 @@ img, svg { max-width: 100%; }
 .page .info dt { background: var(--bg-soft); padding: 4px 12px; font-weight: 700; margin-top: 8px; }
 .page .info dd { margin: 0; padding: 4px 12px 8px; border-bottom: 1px solid #ddd; }
 .page .schedule-list { list-style: none; padding-left: 0; }
-.page .schedule-list li { padding: 4px 12px; border-left: 4px solid var(--green); margin-bottom: 6px; }
+.page .schedule-list li { padding: 4px 12px; border-left: 4px solid var(--blue); margin-bottom: 6px; }
 .page .btn-row { text-align: center; }
 .page ol.steps { margin: 12px 16px 0; padding-left: 1.6em; }
 .page ol.steps li { margin-bottom: 8px; }
@@ -253,7 +254,7 @@ img, svg { max-width: 100%; }
 
 /* About page extras */
 .page .activities { list-style: none; padding-left: 0; }
-.page .activities li { padding: 8px 12px; border-left: 4px solid var(--green); margin-bottom: 10px; background: var(--bg-soft); }
+.page .activities li { padding: 8px 12px; border-left: 4px solid var(--blue); margin-bottom: 10px; background: var(--bg-soft); }
 .page .btn-row .btn { margin: 0 6px 8px; }
 
 /* ---------- Support page ---------- */
@@ -265,7 +266,7 @@ img, svg { max-width: 100%; }
 .support-hero-photo { width: min(420px, 90%); height: auto; border-radius: 16px; box-shadow: 0 4px 14px rgba(0,0,0,.15); }
 .thanks-banner {
   margin: 20px 0 0; padding: 12px 16px; text-align: center; font-weight: 700;
-  background: var(--bg-soft); border: 2px solid var(--green); border-radius: 12px;
+  background: var(--bg-soft); border: 2px solid var(--blue); border-radius: 12px;
 }
 .table-scroll { overflow-x: auto; margin: 16px; }
 .tier-table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 13px; }
