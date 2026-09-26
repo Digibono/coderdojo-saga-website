@@ -309,3 +309,14 @@ img, svg { max-width: 100%; }
   .page .pdf-card { grid-template-columns: auto 1fr auto; align-items: center; }
   .page .pdf-card-action { grid-column: auto; margin: 0; }
 }
+
+/* ---------- SNS widget ---------- */
+.news-layout { display: grid; gap: 24px; grid-template-columns: 1fr; align-items: start; }
+.news-layout .post-grid { grid-template-columns: 1fr; }
+.news-layout .post-thumb { aspect-ratio: auto; height: 160px; }
+.news-layout .post-thumb img { height: 80%; }
+.sns-widget { display: flex; justify-content: center; }
+.sns-widget iframe { width: 100%; max-width: 500px; height: 600px; border: 0; background: #fff; }
+@media (min-width: 768px) {
+  .news-layout { grid-template-columns: 1fr 500px; gap: 32px; }
+}
