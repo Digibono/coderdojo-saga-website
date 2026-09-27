@@ -132,12 +132,12 @@ img, svg { max-width: 100%; }
   margin: 0; padding: 10px 0; text-align: center; font-size: 22px; font-weight: 700;
   background: var(--blue-dark); color: #fff;
 }
-.panel-body { flex: 1; padding: 16px 16px 18px; font-size: 15px; }
+.panel-body { flex: 1; display: flex; flex-direction: column; padding: 16px 16px 18px; font-size: 15px; }
 .panel-body p { margin: 0 0 4px; }
 .panel-body .pin { color: var(--blue-dark); margin-right: 6px; }
 .panel-body .closed { color: var(--accent); font-weight: 700; margin: 6px 0; }
 .panel-body ul { margin: 0; padding-left: 1.2em; }
-.panel-body .btn-wrap { text-align: center; margin-top: 10px; }
+.panel-body .btn-wrap { text-align: center; margin-top: auto; padding-top: 10px; }
 .btn {
   display: inline-block; background: #fff; color: var(--blue-dark); border: 2px solid var(--blue-dark);
   padding: 6px 32px; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 700;
