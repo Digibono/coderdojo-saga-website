@@ -163,14 +163,31 @@ img, svg { max-width: 100%; }
 }
 .post-thumb img { height: 78%; width: auto; }
 .chikarat { height: auto; }
-.post-grid h3 { margin: 12px 0 8px; font-size: 18px; font-weight: 400; line-height: 1.5; }
+.post-grid h3, .post-grid h4 { margin: 12px 0 8px; font-size: 18px; font-weight: 400; line-height: 1.5; }
 .post-meta { margin: 0; padding: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 8px; font-size: 13px; }
 .post-meta dt { background: var(--blue-soft); padding: 0 8px; border-radius: 4px; white-space: nowrap; text-align: center; }
 .post-meta dd { margin: 0; }
 .post-text { margin: 0; font-size: 14px; }
 .post-foot { margin-top: 8px; padding: 2px 8px; background: #eee; text-align: right; font-size: 12px; }
+.post-placeholder { opacity: .7; }
 .more { text-align: center; margin: 28px 0 0; }
 .lead { text-align: center; margin: 0 0 16px; }
+
+/* ---------- Report groups (定期イベント／その他イベント) ---------- */
+.report-group { margin: 0 0 32px; }
+.report-group:last-of-type { margin-bottom: 0; }
+.report-group-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  margin: 0 0 16px;
+}
+.report-group-head h3 { margin: 0; font-size: 19px; font-weight: 700; }
+.view-more {
+  flex: none; display: inline-flex; align-items: center; gap: 2px;
+  font-size: 13px; font-weight: 700; letter-spacing: .03em; text-decoration: none;
+  color: var(--blue-dark);
+}
+.view-more:hover { text-decoration: underline; }
+.view-more .arrow { font-size: 16px; line-height: 1; }
 
 /* ---------- Sponsor ---------- */
 .sponsor { background: var(--bg-soft); text-align: center; padding: 27px 0 37px; }
@@ -296,7 +313,7 @@ img, svg { max-width: 100%; }
 .page .stats span { font-size: 12px; }
 .page .report-list { list-style: none; margin: 12px 16px 0; padding: 0; display: grid; gap: 16px; }
 .page .report-item { padding: 12px 16px 14px; border: 1px solid #ddd; border-radius: 12px; }
-.page .report-item h3 { margin: 0 0 8px; padding: 0; border: 0; font-size: 18px; font-weight: 700; }
+.page .report-item h4 { margin: 0 0 8px; padding: 0; border: 0; font-size: 18px; font-weight: 700; }
 .page .report-item .post-meta { margin: 0; }
 .page .report-item .report-link { margin: 8px 0 0; text-align: right; font-size: 13px; }
 .page .pdf-card {
