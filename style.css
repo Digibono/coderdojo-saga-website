@@ -2,10 +2,9 @@
   /* ロゴアイコン（assets/logo-mark-t.png）の青から作った配色。基本はこの青と無彩色。
      強調したい所（申込・寄付）だけ --accent を使う */
   --blue-dark: #072850;
-  --blue-header: rgba(157, 195, 241, .85);
+  --header-bg: #000;
   --accent: #d9480f;
   --accent-dark: #b03a0a;
-  --accent-soft: #fff1e8;
   --blue: #348bf4;
   --blue-soft: #cddff4;
   --bg-soft: #f2f6fa;
@@ -35,8 +34,8 @@ img, svg { max-width: 100%; }
   height: 60px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 16px;
-  background: var(--blue-header);
-  backdrop-filter: blur(3px);
+  background: var(--header-bg);
+  color: #fff;
 }
 .logo { white-space: nowrap; display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 22px; line-height: 1; }
 .logo img { width: 38px; height: auto; flex: none; }
@@ -46,20 +45,20 @@ img, svg { max-width: 100%; }
   width: 44px; height: 44px; background: none; border: 0; cursor: pointer;
   display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 10px;
 }
-.menu-btn span { display: block; height: 2px; background: #000; transition: .2s; }
+.menu-btn span { display: block; height: 2px; background: #fff; transition: .2s; }
 .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 .nav {
   position: absolute; top: 60px; left: 0; right: 0;
-  background: rgba(157, 195, 241, .97);
+  background: rgba(0, 0, 0, .97);
   display: none; flex-direction: column;
 }
 .nav.open { display: flex; }
-.nav a { padding: 14px 20px; text-decoration: none; border-top: 1px solid rgba(255,255,255,.6); }
-.nav a.nav-cta { margin: 10px 20px; padding: 10px 20px; text-align: center; font-weight: 700; border: 2px solid var(--accent); border-radius: 999px; background: #fff; color: var(--accent); }
-.nav a.nav-cta-primary { background: var(--accent); color: #fff; }
+.nav a { padding: 14px 20px; text-decoration: none; border-top: 1px solid rgba(255,255,255,.2); }
+.nav a.nav-cta { margin: 10px 20px; padding: 10px 20px; text-align: center; font-weight: 700; border: 2px solid var(--accent); border-radius: 999px; background: var(--accent); color: #fff; }
+.nav a.nav-cta-primary { border-color: var(--blue); background: var(--blue); color: #fff; }
 
 /* ---------- Main visual ---------- */
 .main-visual {
@@ -110,7 +109,10 @@ img, svg { max-width: 100%; }
 .card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,.15); }
 .card h2 { margin: 0; padding: 16px 8px 4px; font-size: 22px; font-weight: 700; line-height: 1.3; color: var(--blue-dark); }
 .card p { margin: 0; padding: 4px 12px 18px; font-size: 13px; line-height: 1.6; flex: 1; display: flex; align-items: center; justify-content: center; }
-/* 強調カード（参加申込・寄付/協力） */
+/* 3色で分けたカード：知りたい(白地に青枠・既定)／参加したい(青)／協力したい(橙) */
+.card-join { background: var(--blue); border-color: var(--blue); color: #fff; }
+.card-join h2 { color: #fff; }
+.card-join:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
 .card-cta { background: var(--accent); border-color: var(--accent); color: #fff; }
 .card-cta h2 { color: #fff; }
 .card-cta:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
@@ -143,7 +145,9 @@ img, svg { max-width: 100%; }
   padding: 6px 32px; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 700;
 }
 .btn:hover { background: var(--bg-soft); }
-/* 強調ボタン（イベント申込・寄付/サポーター申込） */
+/* 強調ボタン：参加申込系(青)／寄付・サポーター申込系(橙) */
+.btn-join { background: var(--blue); border-color: var(--blue); color: #fff; padding: 9px 40px; font-size: 15px; }
+.btn-join:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
 .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; padding: 9px 40px; font-size: 15px; }
 .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
 
@@ -159,14 +163,31 @@ img, svg { max-width: 100%; }
 }
 .post-thumb img { height: 78%; width: auto; }
 .chikarat { height: auto; }
-.post-grid h3 { margin: 12px 0 8px; font-size: 18px; font-weight: 400; line-height: 1.5; }
+.post-grid h3, .post-grid h4 { margin: 12px 0 8px; font-size: 18px; font-weight: 400; line-height: 1.5; }
 .post-meta { margin: 0; padding: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 8px; font-size: 13px; }
 .post-meta dt { background: var(--blue-soft); padding: 0 8px; border-radius: 4px; white-space: nowrap; text-align: center; }
 .post-meta dd { margin: 0; }
 .post-text { margin: 0; font-size: 14px; }
 .post-foot { margin-top: 8px; padding: 2px 8px; background: #eee; text-align: right; font-size: 12px; }
+.post-placeholder { opacity: .7; }
 .more { text-align: center; margin: 28px 0 0; }
 .lead { text-align: center; margin: 0 0 16px; }
+
+/* ---------- Report groups (定期イベント／その他イベント) ---------- */
+.report-group { margin: 0 0 32px; }
+.report-group:last-of-type { margin-bottom: 0; }
+.report-group-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  margin: 0 0 16px;
+}
+.report-group-head h3 { margin: 0; font-size: 19px; font-weight: 700; }
+.view-more {
+  flex: none; display: inline-flex; align-items: center; gap: 2px;
+  font-size: 13px; font-weight: 700; letter-spacing: .03em; text-decoration: none;
+  color: var(--blue-dark);
+}
+.view-more:hover { text-decoration: underline; }
+.view-more .arrow { font-size: 16px; line-height: 1; }
 
 /* ---------- Sponsor ---------- */
 .sponsor { background: var(--bg-soft); text-align: center; padding: 27px 0 37px; }
@@ -198,8 +219,8 @@ img, svg { max-width: 100%; }
   .nav a { padding: 8px 12px; border: 0; font-size: 16px; white-space: nowrap; }
   .nav a:hover { text-decoration: underline; }
   .nav a.nav-cta { margin: 0 0 0 8px; padding: 6px 18px; }
-  .nav a.nav-cta:hover { text-decoration: none; background: var(--accent-soft); }
-  .nav a.nav-cta-primary:hover { background: var(--accent-dark); }
+  .nav a.nav-cta:hover { text-decoration: none; background: var(--accent-dark); border-color: var(--accent-dark); }
+  .nav a.nav-cta-primary:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
 }
 
 /* Report/news thumbnails: white background with a light outline */
@@ -292,7 +313,7 @@ img, svg { max-width: 100%; }
 .page .stats span { font-size: 12px; }
 .page .report-list { list-style: none; margin: 12px 16px 0; padding: 0; display: grid; gap: 16px; }
 .page .report-item { padding: 12px 16px 14px; border: 1px solid #ddd; border-radius: 12px; }
-.page .report-item h3 { margin: 0 0 8px; padding: 0; border: 0; font-size: 18px; font-weight: 700; }
+.page .report-item h4 { margin: 0 0 8px; padding: 0; border: 0; font-size: 18px; font-weight: 700; }
 .page .report-item .post-meta { margin: 0; }
 .page .report-item .report-link { margin: 8px 0 0; text-align: right; font-size: 13px; }
 .page .pdf-card {
