@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルビーコロをつくろう！ | CoderDojo さが</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=17">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <img src="assets/logo-mark-t.png" alt="" width="38" height="41">
+    <span>CoderDojo <b>さが</b></span>
+  </a>
+  <button class="menu-btn" aria-label="メニュー" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="nav" class="nav">
+    <a href="about.html">CoderDojoについて</a>
+    <a href="index.html#schedule">開催予定</a>
+    <a href="index.html#report">開催レポート</a>
+    <a href="reports.html">活動報告</a>
+    <a href="index.html#news">お知らせ</a>
+    <a href="support.html">協力・支援</a>
+    <a href="mailto:saga.jp@coderdojo.com">お問い合わせ</a>
+    <a class="nav-cta nav-cta-primary" href="https://coderdojo-saga.peatix.com/" target="_blank" rel="noopener">参加申込</a>
+    <a class="nav-cta" href="support.html">寄付・協賛</a>
+  </nav>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="index.html">ホーム</a> <span>&gt;</span> <a href="reports.html#other-events">活動報告</a> <span>&gt;</span> <span>デジタルビーコロをつくろう！</span>
+    </nav>
+
+    <h1 class="page-title">デジタルビーコロをつくろう！</h1>
+
+    <p>
+      2026年3月21日(土)・22日(日)、佐賀県立宇宙科学館（ゆめぎんが）の企画展「ビーコロ×ゲーム展」にて、
+      CoderDojo さが協力のワークショップを実施しました。「Springin'」を使い、文字を使わずに
+      誰でも簡単にゲームや装置が作れる体験会です。
+    </p>
+
+    <div class="carousel" data-carousel>
+      <div class="carousel-row">
+        <button type="button" class="carousel-prev" aria-label="前のページ">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <div class="carousel-track">
+          <img class="active" src="assets/flyers/bcoro-front.jpg" alt="デジタルビーコロをつくろう！ チラシ（表）">
+          <img src="assets/flyers/bcoro-back.jpg" alt="デジタルビーコロをつくろう！ チラシ（裏）">
+        </div>
+        <button type="button" class="carousel-next" aria-label="次のページ">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <ul class="carousel-dots">
+        <li><button type="button" class="active" aria-label="1ページ目"></button></li>
+        <li><button type="button" aria-label="2ページ目"></button></li>
+      </ul>
+    </div>
+
+    <p class="btn-row"><a class="btn btn-join" href="https://www.yumeginga.jp/sp_exhibition/history_b-coro/sp_exhibition.html" target="_blank" rel="noopener">公式サイトを見る</a></p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>佐賀市内で毎月1回開催する子どもたちのためのプログラミングクラブ</p>
+  <ul class="footer-links">
+    <li><a href="about.html">CoderDojoについて</a></li>
+    <li><a href="index.html#schedule">開催予定</a></li>
+    <li><a href="index.html#report">開催レポート</a></li>
+    <li><a href="reports.html">活動報告</a></li>
+    <li><a href="support.html">協力・支援</a></li>
+    <li><a href="https://www.facebook.com/CoderDojoSAGA/" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://coderdojo-saga.peatix.com/" target="_blank" rel="noopener">Peatix</a></li>
+    <li><a href="mailto:saga.jp@coderdojo.com">お問い合わせ</a></li>
+  </ul>
+  <p class="copy">&copy; CoderDojo Saga.</p>
+</footer>
+
+<script>
+  const btn = document.querySelector('.menu-btn');
+  const nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.addEventListener('click', e => {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', false);
+    }
+  });
+
+  document.querySelectorAll('[data-carousel]').forEach(car => {
+    const imgs = [...car.querySelectorAll('.carousel-track img')];
+    const dots = [...car.querySelectorAll('.carousel-dots button')];
+    let i = 0;
+    function show(n) {
+      i = (n + imgs.length) % imgs.length;
+      imgs.forEach((img, idx) => img.classList.toggle('active', idx === i));
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+    }
+    car.querySelector('.carousel-prev').addEventListener('click', () => show(i - 1));
+    car.querySelector('.carousel-next').addEventListener('click', () => show(i + 1));
+    dots.forEach((d, idx) => d.addEventListener('click', () => show(idx)));
+  });
+</script>
+</body>
+</html>

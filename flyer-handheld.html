@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>CoderDojo さが（関係者向け）</title>
+  <link rel="icon" href="assets/logo-mark-t.png">
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #e0f2f6;
+      font-family: "Zen Kaku Gothic New", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; }
+    .gate { background: #fff; border-radius: 20px; padding: 32px 24px; width: min(360px, 92vw); text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,.12); }
+    .gate img { width: 88px; height: auto; }
+    .gate h1 { font-size: 20px; margin: 8px 0 4px; }
+    .gate p { font-size: 13px; margin: 0 0 16px; color: #555; }
+    .gate input { width: 100%; padding: 10px 12px; font-size: 16px; border: 2px solid #86d1a0; border-radius: 8px; box-sizing: border-box; }
+    .gate button { margin-top: 12px; width: 100%; padding: 10px; font-size: 16px; border: 0; border-radius: 8px; background: #1493d2; color: #fff; cursor: pointer; }
+    .gate button:disabled { opacity: .6; cursor: wait; }
+    .err { color: #c0392b; font-size: 13px; min-height: 1.4em; margin: 8px 0 0; }
+  </style>
+</head>
+<body>
+<form class="gate" id="gate">
+  <img src="assets/logo-mark-t.png" alt="">
+  <h1>CoderDojo さが</h1>
+  <p>このページは関係者向けです。パスワードを入力してください。</p>
+  <input type="password" id="pw" autocomplete="current-password" aria-label="パスワード" autofocus>
+  <button type="submit" id="go">開く</button>
+  <p class="err" id="err" role="alert"></p>
+</form>
+<script>
+(() => {
+  const ENC = {"salt":"pzjJmzCQvf3Y2re1ks4qAA==","iv":"ykc6ho9r61wXAZmn","ct":"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","iter":600000};
+  const dec = s => Uint8Array.from(atob(s), ch => ch.charCodeAt(0));
+  async function unlock(pw) {
+    const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+    const key = await crypto.subtle.deriveKey(
+      { name: 'PBKDF2', salt: dec(ENC.salt), iterations: ENC.iter, hash: 'SHA-256' },
+      base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: dec(ENC.iv) }, key, dec(ENC.ct));
+    return JSON.parse(new TextDecoder().decode(plain));
+  }
+  function show(d) {
+    document.head.insertAdjacentHTML('beforeend', d.headLinks.join(''));
+    document.title = d.title;
+    document.body.removeAttribute('style');
+    document.body.innerHTML = d.body;
+    new Function(d.js)();
+    if (location.hash) { const t = document.querySelector(location.hash); if (t) t.scrollIntoView(); }
+  }
+  const form = document.getElementById('gate'), err = document.getElementById('err');
+  async function attempt(pw, remember) {
+    try {
+      const d = await unlock(pw);
+      if (remember) { try { sessionStorage.setItem('cdsaga', pw); } catch (e) {} }
+      show(d);
+      return true;
+    } catch (e) { return false; }
+  }
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = document.getElementById('go'); btn.disabled = true; err.textContent = '';
+    const ok = await attempt(document.getElementById('pw').value, true);
+    if (!ok) { err.textContent = 'パスワードが違います。'; btn.disabled = false; }
+  });
+  let saved = null; try { saved = sessionStorage.getItem('cdsaga'); } catch (e) {}
+  if (saved) attempt(saved, false);
+})();
+</script>
+</body>
+</html>

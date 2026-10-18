@@ -291,6 +291,38 @@ img, svg { max-width: 100%; }
 .page .activities li { padding: 8px 12px; border-left: 4px solid var(--blue); margin-bottom: 10px; background: var(--bg-soft); }
 .page .btn-row .btn { margin: 0 6px 8px; }
 
+/* ---------- Flyer pages (その他の活動の各ページ) ---------- */
+.page .flyer-images { display: grid; gap: 16px; grid-template-columns: 1fr; margin: 16px; }
+.page .flyer-images img { width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.12); }
+
+/* 複数ページのチラシ：1枚ずつ表示するカルーセル（矢印はチラシの横に配置） */
+.page .carousel { margin: 16px; }
+.page .carousel-row { display: flex; align-items: center; gap: 8px; }
+.page .carousel-track { position: relative; flex: 1; min-width: 0; }
+.page .carousel-track img {
+  display: none; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.12);
+}
+.page .carousel-track img.active { display: block; }
+.page .carousel-prev, .page .carousel-next {
+  flex: none; width: 44px; height: 44px; border-radius: 50%; border: 3px solid #fff; padding: 0;
+  background: var(--blue-dark); color: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,.3);
+  transition: background .15s, transform .15s;
+}
+.page .carousel-prev svg, .page .carousel-next svg { width: 22px; height: 22px; }
+.page .carousel-prev:hover, .page .carousel-next:hover { background: var(--blue); transform: scale(1.08); }
+@media (min-width: 640px) {
+  .page .carousel-row { gap: 16px; }
+  .page .carousel-prev, .page .carousel-next { width: 52px; height: 52px; }
+  .page .carousel-prev svg, .page .carousel-next svg { width: 24px; height: 24px; }
+}
+.page .carousel-dots { display: flex; justify-content: center; gap: 8px; margin: 10px 0 0; padding: 0; list-style: none; }
+.page .carousel-dots button {
+  width: 9px; height: 9px; padding: 0; border-radius: 50%; border: 0; background: var(--line); cursor: pointer;
+}
+.page .carousel-dots button.active { background: var(--blue); }
+
 /* ---------- Support page ---------- */
 .support-hero { background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); padding: 32px 0; margin-top: 60px; }
 .support-hero-inner { display: flex; flex-direction: column-reverse; gap: 20px; align-items: center; }

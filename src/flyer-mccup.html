@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Road to マイクラカップ in SAGA | CoderDojo さが</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=17">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <img src="assets/logo-mark-t.png" alt="" width="38" height="41">
+    <span>CoderDojo <b>さが</b></span>
+  </a>
+  <button class="menu-btn" aria-label="メニュー" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="nav" class="nav">
+    <a href="about.html">CoderDojoについて</a>
+    <a href="index.html#schedule">開催予定</a>
+    <a href="index.html#report">開催レポート</a>
+    <a href="reports.html">活動報告</a>
+    <a href="index.html#news">お知らせ</a>
+    <a href="support.html">協力・支援</a>
+    <a href="mailto:saga.jp@coderdojo.com">お問い合わせ</a>
+    <a class="nav-cta nav-cta-primary" href="https://coderdojo-saga.peatix.com/" target="_blank" rel="noopener">参加申込</a>
+    <a class="nav-cta" href="support.html">寄付・協賛</a>
+  </nav>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="index.html">ホーム</a> <span>&gt;</span> <a href="reports.html#other-events">活動報告</a> <span>&gt;</span> <span>Road to マイクラカップ in SAGA</span>
+    </nav>
+
+    <h1 class="page-title">Road to マイクラカップ in SAGA</h1>
+
+    <p>
+      マイクラカップ出場を目指す、佐賀県内の小・中学生向け全4回の講座です。2026年7月5日・19日、8月9日は
+      SAGA CHIKAで、8月30日は佐賀市青少年センターで開催しました。CoderDojo さが主催、先着15名。
+    </p>
+
+    <div class="carousel" data-carousel>
+      <div class="carousel-row">
+        <button type="button" class="carousel-prev" aria-label="前のページ">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <div class="carousel-track">
+          <img class="active" src="assets/flyers/mccup-front.jpg" alt="Road to マイクラカップ in SAGA チラシ（表）">
+          <img src="assets/flyers/mccup-back.jpg" alt="Road to マイクラカップ in SAGA チラシ（裏）">
+        </div>
+        <button type="button" class="carousel-next" aria-label="次のページ">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <ul class="carousel-dots">
+        <li><button type="button" class="active" aria-label="1ページ目"></button></li>
+        <li><button type="button" aria-label="2ページ目"></button></li>
+      </ul>
+    </div>
+
+    <p class="btn-row"><a class="btn btn-join" href="https://mccup.jp" target="_blank" rel="noopener">マイクラカップ公式サイトを見る</a></p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>佐賀市内で毎月1回開催する子どもたちのためのプログラミングクラブ</p>
+  <ul class="footer-links">
+    <li><a href="about.html">CoderDojoについて</a></li>
+    <li><a href="index.html#schedule">開催予定</a></li>
+    <li><a href="index.html#report">開催レポート</a></li>
+    <li><a href="reports.html">活動報告</a></li>
+    <li><a href="support.html">協力・支援</a></li>
+    <li><a href="https://www.facebook.com/CoderDojoSAGA/" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://coderdojo-saga.peatix.com/" target="_blank" rel="noopener">Peatix</a></li>
+    <li><a href="mailto:saga.jp@coderdojo.com">お問い合わせ</a></li>
+  </ul>
+  <p class="copy">&copy; CoderDojo Saga.</p>
+</footer>
+
+<script>
+  const btn = document.querySelector('.menu-btn');
+  const nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.addEventListener('click', e => {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', false);
+    }
+  });
+
+  document.querySelectorAll('[data-carousel]').forEach(car => {
+    const imgs = [...car.querySelectorAll('.carousel-track img')];
+    const dots = [...car.querySelectorAll('.carousel-dots button')];
+    let i = 0;
+    function show(n) {
+      i = (n + imgs.length) % imgs.length;
+      imgs.forEach((img, idx) => img.classList.toggle('active', idx === i));
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+    }
+    car.querySelector('.carousel-prev').addEventListener('click', () => show(i - 1));
+    car.querySelector('.carousel-next').addEventListener('click', () => show(i + 1));
+    dots.forEach((d, idx) => d.addEventListener('click', () => show(idx)));
+  });
+</script>
+</body>
+</html>
