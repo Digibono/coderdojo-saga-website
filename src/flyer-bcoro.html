@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルビーコロをつくろう！ | CoderDojo さが</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=17">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <img src="assets/logo-mark-t.png" alt="" width="38" height="41">
+    <span>CoderDojo <b>さが</b></span>
+  </a>
+  <button class="menu-btn" aria-label="メニュー" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="nav" class="nav">
+    <a href="about.html">CoderDojoについて</a>
+    <a href="index.html#schedule">開催予定</a>
+    <a href="index.html#report">開催レポート</a>
+    <a href="reports.html">活動報告</a>
+    <a href="index.html#news">お知らせ</a>
+    <a href="support.html">協力・支援</a>
+    <a href="mailto:saga.jp@coderdojo.com">お問い合わせ</a>
+    <a class="nav-cta nav-cta-primary" href="https://coderdojo-saga.peatix.com/" target="_blank" rel="noopener">参加申込</a>
+    <a class="nav-cta" href="support.html">寄付・協賛</a>
+  </nav>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="index.html">ホーム</a> <span>&gt;</span> <a href="reports.html#other-events">活動報告</a> <span>&gt;</span> <span>デジタルビーコロをつくろう！</span>
+    </nav>
+
+    <h1 class="page-title">デジタルビーコロをつくろう！</h1>
+
+    <p>
+      2026年3月21日(土)・22日(日)、佐賀県立宇宙科学館（ゆめぎんが）の企画展「ビーコロ×ゲーム展」にて、
+      CoderDojo さが協力のワークショップを実施しました。「Springin'」を使い、文字を使わずに
+      誰でも簡単にゲームや装置が作れる体験会です。
+    </p>
+
+    <div class="flyer-images two">
+      <img src="assets/flyers/bcoro-front.jpg" alt="デジタルビーコロをつくろう！ チラシ（表）">
+      <img src="assets/flyers/bcoro-back.jpg" alt="デジタルビーコロをつくろう！ チラシ（裏）">
+    </div>
+
+    <p class="btn-row"><a class="btn btn-join" href="https://www.yumeginga.jp/sp_exhibition/history_b-coro/sp_exhibition.html" target="_blank" rel="noopener">公式サイトを見る</a></p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>佐賀市内で毎月1回開催する子どもたちのためのプログラミングクラブ</p>
+  <ul class="footer-links">
+    <li><a href="about.html">CoderDojoについて</a></li>
+    <li><a href="index.html#schedule">開催予定</a></li>
+    <li><a href="index.html#report">開催レポート</a></li>
+    <li><a href="reports.html">活動報告</a></li>
+    <li><a href="support.html">協力・支援</a></li>
+    <li><a href="https://www.facebook.com/CoderDojoSAGA/" target="_blank" rel="noopener">Facebook</a></li>
+    <li><a href="https://coderdojo-saga.peatix.com/" target="_blank" rel="noopener">Peatix</a></li>
+    <li><a href="mailto:saga.jp@coderdojo.com">お問い合わせ</a></li>
+  </ul>
+  <p class="copy">&copy; CoderDojo Saga.</p>
+</footer>
+
+<script>
+  const btn = document.querySelector('.menu-btn');
+  const nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.addEventListener('click', e => {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', false);
+    }
+  });
+</script>
+</body>
+</html>

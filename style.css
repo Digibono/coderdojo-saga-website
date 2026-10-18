@@ -291,6 +291,13 @@ img, svg { max-width: 100%; }
 .page .activities li { padding: 8px 12px; border-left: 4px solid var(--blue); margin-bottom: 10px; background: var(--bg-soft); }
 .page .btn-row .btn { margin: 0 6px 8px; }
 
+/* ---------- Flyer pages (その他の活動の各ページ) ---------- */
+.page .flyer-images { display: grid; gap: 16px; grid-template-columns: 1fr; margin: 16px; }
+.page .flyer-images img { width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.12); }
+@media (min-width: 768px) {
+  .page .flyer-images.two { grid-template-columns: 1fr 1fr; }
+}
+
 /* ---------- Support page ---------- */
 .support-hero { background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); padding: 32px 0; margin-top: 60px; }
 .support-hero-inner { display: flex; flex-direction: column-reverse; gap: 20px; align-items: center; }
