@@ -45,8 +45,21 @@
       「SAGAものすごフェスタ12」に、CoderDojo さが＆CoderDojoSAGA@駅前中央として出展しました。
     </p>
 
-    <div class="flyer-images">
-      <img src="assets/flyers/monosugo.jpg" alt="SAGAものすごフェスタ12 チラシ">
+    <div class="carousel" data-carousel>
+      <div class="carousel-track">
+        <img class="active" src="assets/flyers/monosugo-1.jpg" alt="SAGAものすごフェスタ12 チラシ（1/4 表紙）">
+        <img src="assets/flyers/monosugo-2.jpg" alt="SAGAものすごフェスタ12 チラシ（2/4 アプリのご案内）">
+        <img src="assets/flyers/monosugo-3.jpg" alt="SAGAものすごフェスタ12 チラシ（3/4 ワークショップ紹介）">
+        <img src="assets/flyers/monosugo-4.jpg" alt="SAGAものすごフェスタ12 チラシ（4/4 アクセス）">
+      </div>
+      <button type="button" class="carousel-prev" aria-label="前のページ">‹</button>
+      <button type="button" class="carousel-next" aria-label="次のページ">›</button>
+      <ul class="carousel-dots">
+        <li><button type="button" class="active" aria-label="1ページ目"></button></li>
+        <li><button type="button" aria-label="2ページ目"></button></li>
+        <li><button type="button" aria-label="3ページ目"></button></li>
+        <li><button type="button" aria-label="4ページ目"></button></li>
+      </ul>
     </div>
 
     <p class="btn-row">
@@ -84,6 +97,20 @@
       nav.classList.remove('open');
       btn.setAttribute('aria-expanded', false);
     }
+  });
+
+  document.querySelectorAll('[data-carousel]').forEach(car => {
+    const imgs = [...car.querySelectorAll('.carousel-track img')];
+    const dots = [...car.querySelectorAll('.carousel-dots button')];
+    let i = 0;
+    function show(n) {
+      i = (n + imgs.length) % imgs.length;
+      imgs.forEach((img, idx) => img.classList.toggle('active', idx === i));
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+    }
+    car.querySelector('.carousel-prev').addEventListener('click', () => show(i - 1));
+    car.querySelector('.carousel-next').addEventListener('click', () => show(i + 1));
+    dots.forEach((d, idx) => d.addEventListener('click', () => show(idx)));
   });
 </script>
 </body>

@@ -46,9 +46,17 @@
       誰でも簡単にゲームや装置が作れる体験会です。
     </p>
 
-    <div class="flyer-images two">
-      <img src="assets/flyers/bcoro-front.jpg" alt="デジタルビーコロをつくろう！ チラシ（表）">
-      <img src="assets/flyers/bcoro-back.jpg" alt="デジタルビーコロをつくろう！ チラシ（裏）">
+    <div class="carousel" data-carousel>
+      <div class="carousel-track">
+        <img class="active" src="assets/flyers/bcoro-front.jpg" alt="デジタルビーコロをつくろう！ チラシ（表）">
+        <img src="assets/flyers/bcoro-back.jpg" alt="デジタルビーコロをつくろう！ チラシ（裏）">
+      </div>
+      <button type="button" class="carousel-prev" aria-label="前のページ">‹</button>
+      <button type="button" class="carousel-next" aria-label="次のページ">›</button>
+      <ul class="carousel-dots">
+        <li><button type="button" class="active" aria-label="1ページ目"></button></li>
+        <li><button type="button" aria-label="2ページ目"></button></li>
+      </ul>
     </div>
 
     <p class="btn-row"><a class="btn btn-join" href="https://www.yumeginga.jp/sp_exhibition/history_b-coro/sp_exhibition.html" target="_blank" rel="noopener">公式サイトを見る</a></p>
@@ -83,6 +91,20 @@
       nav.classList.remove('open');
       btn.setAttribute('aria-expanded', false);
     }
+  });
+
+  document.querySelectorAll('[data-carousel]').forEach(car => {
+    const imgs = [...car.querySelectorAll('.carousel-track img')];
+    const dots = [...car.querySelectorAll('.carousel-dots button')];
+    let i = 0;
+    function show(n) {
+      i = (n + imgs.length) % imgs.length;
+      imgs.forEach((img, idx) => img.classList.toggle('active', idx === i));
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+    }
+    car.querySelector('.carousel-prev').addEventListener('click', () => show(i - 1));
+    car.querySelector('.carousel-next').addEventListener('click', () => show(i + 1));
+    dots.forEach((d, idx) => d.addEventListener('click', () => show(idx)));
   });
 </script>
 </body>
