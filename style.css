@@ -2,7 +2,7 @@
   /* ロゴアイコン（assets/logo-mark-t.png）の青から作った配色。基本はこの青と無彩色。
      強調したい所（申込・寄付）だけ --accent を使う */
   --blue-dark: #072850;
-  --header-bg: #000;
+  --header-bg: #fff;
   --accent: #d9480f;
   --accent-dark: #b03a0a;
   --blue: #348bf4;
@@ -35,7 +35,8 @@ img, svg { max-width: 100%; }
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 16px;
   background: var(--header-bg);
-  color: #fff;
+  color: #000;
+  box-shadow: 0 1px 0 rgba(0,0,0,.1);
 }
 .logo { white-space: nowrap; display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 22px; line-height: 1; }
 .logo img { width: 38px; height: auto; flex: none; }
@@ -45,18 +46,19 @@ img, svg { max-width: 100%; }
   width: 44px; height: 44px; background: none; border: 0; cursor: pointer;
   display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 10px;
 }
-.menu-btn span { display: block; height: 2px; background: #fff; transition: .2s; }
+.menu-btn span { display: block; height: 2px; background: #000; transition: .2s; }
 .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 .nav {
   position: absolute; top: 60px; left: 0; right: 0;
-  background: rgba(0, 0, 0, .97);
+  background: rgba(255, 255, 255, .97);
   display: none; flex-direction: column;
+  box-shadow: 0 1px 0 rgba(0,0,0,.1);
 }
 .nav.open { display: flex; }
-.nav a { padding: 14px 20px; text-decoration: none; border-top: 1px solid rgba(255,255,255,.2); }
+.nav a { padding: 14px 20px; text-decoration: none; border-top: 1px solid rgba(0,0,0,.1); }
 .nav a.nav-cta { margin: 10px 20px; padding: 10px 20px; text-align: center; font-weight: 700; border: 2px solid var(--accent); border-radius: 999px; background: var(--accent); color: #fff; }
 .nav a.nav-cta-primary { border-color: var(--blue); background: var(--blue); color: #fff; }
 
