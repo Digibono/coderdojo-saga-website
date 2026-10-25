@@ -58,7 +58,7 @@ img, svg { max-width: 100%; }
   box-shadow: 0 1px 0 rgba(0,0,0,.1);
 }
 .nav.open { display: flex; }
-.nav a { padding: 14px 20px; text-decoration: none; border-top: 1px solid rgba(0,0,0,.1); }
+.nav a { padding: 14px 20px; text-decoration: none; }
 .nav a.nav-cta { margin: 10px 20px; padding: 10px 20px; text-align: center; font-weight: 700; border: 2px solid var(--accent); border-radius: 999px; background: var(--accent); color: #fff; }
 .nav a.nav-cta-primary { border-color: var(--blue); background: var(--blue); color: #fff; }
 
