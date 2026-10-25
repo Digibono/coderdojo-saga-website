@@ -21,7 +21,7 @@ body {
     "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   color: #000;
   line-height: 1.7;
-  background: var(--blue-dark);
+  background: var(--bg-soft);
 }
 
 a { color: inherit; }
