@@ -36,6 +36,7 @@ img, svg { max-width: 100%; }
   padding: 0 16px;
   background: var(--header-bg);
   color: #000;
+  border-bottom: 1px solid #e0e0e0;
 }
 .logo { white-space: nowrap; display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 22px; line-height: 1; }
 .logo img { width: 38px; height: auto; flex: none; }
