@@ -155,7 +155,7 @@ img, svg { max-width: 100%; }
 .btn:hover { background: var(--bg-soft); }
 /* 強調ボタン：参加申込系(青)／寄付・サポーター申込系(橙) */
 .btn-join { background: var(--blue); border-color: var(--blue); color: #fff; padding: 9px 40px; font-size: 15px; }
-.btn-join:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
+.btn-join:hover, .post-grid a:hover .btn-join { background: var(--blue-dark); border-color: var(--blue-dark); }
 .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; padding: 9px 40px; font-size: 15px; }
 .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
 
@@ -168,6 +168,7 @@ img, svg { max-width: 100%; }
 .post-grid.flow { grid-template-columns: repeat(auto-fit, minmax(260px, 360px)); justify-content: center; }
 .post-grid li {
   background: #fff; border-radius: 14px; overflow: hidden;
+  border: 1px solid var(--line);
   box-shadow: 0 2px 10px rgba(0,0,0,.08);
   transition: transform .15s, box-shadow .15s;
 }
@@ -175,7 +176,7 @@ img, svg { max-width: 100%; }
 .post-grid a { display: block; text-decoration: none; }
 .post-thumb {
   aspect-ratio: 16 / 9; display: grid; place-items: center;
-  background: var(--bg-soft);
+  background: #e1ecf9;
 }
 .post-thumb img { height: 78%; width: auto; }
 .chikarat { height: auto; }
@@ -188,6 +189,26 @@ img, svg { max-width: 100%; }
 .post-foot { margin-top: 8px; padding: 2px 8px; background: #eee; text-align: right; font-size: 12px; }
 .post-placeholder { opacity: .7; }
 .more { text-align: center; margin: 28px 0 0; }
+
+/* ---------- 5周年企画（テーマソング） ---------- */
+.theme-song {
+  display: grid; gap: 20px; padding: 20px;
+  background: var(--blue); border: 1px solid var(--blue); border-radius: 14px; color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+.theme-song h3 { margin: 0 0 8px; font-size: 20px; font-weight: 700; color: #fff; line-height: 1.5; }
+.theme-song p { margin: 0 0 12px; font-size: 15px; }
+.theme-song .post-meta { padding: 0; font-size: 14px; }
+.theme-song .post-meta dt { color: var(--blue-dark); }
+.theme-song-player h4 { margin: 0 0 8px; font-size: 16px; font-weight: 700; }
+.theme-song-player iframe { display: block; width: 100%; height: 220px; border: 0; border-radius: 10px; background: #202124; }
+.theme-song-player .theme-song-link { margin: 8px 0 0; font-size: 13px; text-align: right; }
+.theme-song .theme-song-action { margin: 16px 0 0; }
+.theme-song .theme-song-link a { color: #fff; }
+@media (min-width: 768px) {
+  .theme-song { grid-template-columns: 1.3fr 1fr; gap: 32px; padding: 28px; align-items: center; }
+}
+
 .lead { text-align: center; margin: 0 0 16px; }
 
 /* ---------- Report groups (定期イベント／その他イベント) ---------- */
@@ -382,3 +403,64 @@ img, svg { max-width: 100%; }
 .news-lead { text-align: center; margin: 0 0 20px; }
 .sns-widget { display: flex; justify-content: center; }
 .sns-widget iframe { width: 100%; max-width: 500px; height: 600px; border: 0; background: #fff; }
+
+/* ---------- 5周年企画ページ（テーマソングができるまで） ---------- */
+.page .anniv-hero {
+  margin: 8px 0 0; padding: 32px 20px 28px; text-align: center; color: #fff; border-radius: 16px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+}
+.page .anniv-hero img { width: 64px; height: auto; padding: 8px; background: #fff; border-radius: 50%; }
+.page .anniv-hero p { margin: 0; }
+.page .anniv-eyebrow { margin-top: 10px; font-size: 14px; font-weight: 700; letter-spacing: .12em; }
+.page .anniv-title { margin: 8px 0 0; font-size: 26px; font-weight: 900; line-height: 1.5; }
+.page .anniv-hero .anniv-lead { margin-top: 14px; font-size: 14px; line-height: 1.9; }
+.page .anniv-start { margin: 28px 0 0; }
+.page .anniv-start p { margin: 0; text-align: center; font-weight: 700; color: var(--blue-dark); font-size: 17px; }
+.page .anniv-start-cards { display: grid; gap: 14px; margin-top: 14px; grid-template-columns: 1fr; }
+.page .anniv-start-cards > div { padding: 14px 16px 10px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 14px; }
+.page .anniv-start-cards h2 { margin: 0; padding: 0; background: none; border: 0; font-size: 17px; font-weight: 700; color: var(--blue-dark); }
+.page .anniv-start-cards ul { margin: 8px 0 0; font-size: 14px; }
+.page .anniv-heading {
+  margin: 40px 0 0; padding: 0; text-align: center; background: none; border: 0;
+  font-size: 24px; font-weight: 900; color: var(--blue-dark);
+}
+.page .anniv-heading::after { content: ""; display: block; width: 56px; height: 4px; margin: 10px auto 0; background: var(--blue); border-radius: 2px; }
+.page .timeline { list-style: none; margin: 24px 0 0; padding: 0; position: relative; }
+.page .timeline::before {
+  content: ""; position: absolute; left: 19px; top: 20px; bottom: 20px; width: 4px;
+  background: var(--blue-soft); border-radius: 2px;
+}
+.page .tl-step { position: relative; margin: 0 0 24px; padding-left: 56px; }
+.page .tl-badge {
+  position: absolute; left: 0; top: 0; width: 42px; height: 42px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--blue); color: #fff; font-size: 18px; font-weight: 700;
+  box-shadow: 0 0 0 4px #fff;
+}
+.page .tl-card { padding: 16px 18px 18px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 14px; }
+.page .tl-card p { margin: 8px 0 0; }
+.page .tl-card .tl-meta { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; }
+.page .tl-meta span { padding: 1px 10px; background: var(--blue-soft); border-radius: 999px; }
+.page .tl-meta .tl-no { background: var(--blue); color: #fff; font-weight: 700; }
+.page .tl-card h3 { margin: 8px 0 0; padding: 0; border: 0; font-size: 20px; font-weight: 700; color: var(--blue-dark); line-height: 1.5; }
+.page .tl-figs { display: grid; gap: 14px; margin-top: 14px; grid-template-columns: 1fr; align-items: start; }
+.page .tl-figs figure { margin: 0; }
+.page .tl-figs img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+.page .tl-figs figcaption { margin-top: 6px; font-size: 12px; line-height: 1.6; color: #555; }
+.page .tl-single .tl-figs { grid-template-columns: 1fr; max-width: 560px; }
+.page .tl-final .tl-badge { background: var(--accent); }
+.page .tl-final .tl-card { background: var(--blue-dark); border-color: var(--blue-dark); color: #fff; }
+.page .tl-final .tl-card h3 { color: #fff; font-size: 22px; }
+.page .tl-final .tl-meta span { background: rgba(255,255,255,.2); }
+.page .tl-final .tl-meta .tl-no { background: var(--accent); }
+.page .tl-final .theme-song-player { margin-top: 14px; }
+.page .tl-final .theme-song-link a { color: #fff; }
+@media (min-width: 768px) {
+  .page .anniv-hero { padding: 44px 40px 40px; }
+  .page .anniv-title { font-size: 36px; }
+  .page .anniv-hero .anniv-lead { font-size: 16px; }
+  .page .anniv-start-cards { grid-template-columns: 1fr 1fr; }
+  .page .tl-figs { grid-template-columns: repeat(3, 1fr); }
+  .page .tl-step { padding-left: 72px; }
+  .page .timeline::before { left: 27px; }
+  .page .tl-badge { width: 58px; height: 58px; font-size: 22px; }
+}
